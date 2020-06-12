@@ -20,3 +20,4 @@ while True:
              os.system("mpack -s \"test\" /home/pi/image2.jpg shaheem@gmail.com")
              GPIO.output(3, 1)  #Turn ON buzzer
              time.sleep(10)
+ 

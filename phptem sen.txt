@@ -1,0 +1,47 @@
+Terminal window commands to configure temperature sensor:-
+
+
+1: To add support for OneWire, we first need to open up the boot config file, and this can be 
+done by running the following command.
+•	sudo nano /boot/config.text
+
+2: At the bottom of this file enter the following.
+•	dtoverlay=w1-gpio   (write this line at the end of page after entering the above command).
+
+3:Once done save & exit by pressing ctrl x and then y. Now reboot the Pi by running the following command.
+•	sudo reboot
+
+4: Once the Raspberry Pi has booted back up, we need to run modprobe so we can load the correct modules.
+•	sudo modprobe w1-gpio
+•	sudo modprobe w1-therm
+
+5: Now change into the devices directory and use ls to see the folders and files in the directory.
+•	cd /sys/bus/w1/devices
+•	ls
+
+6: Now run the following command, change the numbering after cd to what has appeared in your directory 
+by using the ls command. (If you have multiple sensors there will be more than one directory)
+•	cd (28-000007602ffa)
+
+7: Now run the following command.
+•	cat w1_slave
+
+
+<?php
+//File to read
+$file = '/sys/bus/w1/devices/28-00299b120204/';
+
+//Read the file line by line
+$lines = file($file);
+
+//Get the temp from second line 
+$temp = explode('=', $lines[1]);
+
+//Setup some nice formatting (i.e. 21,3)
+$temp = number_format($temp[1] / 1000, 1, ',', '');
+
+//And echo that temp
+echo $temp . " °C";
+?>
+
+

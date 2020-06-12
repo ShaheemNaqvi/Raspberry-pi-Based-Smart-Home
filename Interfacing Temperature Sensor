@@ -1,0 +1,4 @@
+The DS18B20 Digital Thermometer provides 9 to 12-bit (configurable) temperature readings which indicate the temperature of the device. 
+Information is sent to/from the DS18B20 over a 1-Wire interface, so that only one wire (and ground) needs to be connected from a central 
+microprocessor to a DS18B20. Power for reading, writing, and performing temperature conversions can be derived from the data line itself 
+with no need for an external power source.

@@ -1,4 +1,4 @@
-Check mpack & stmp config file to use this code
+#Check mpack & stmp config file to use this code
 
 import RPi.GPIO as GPIO
 import os

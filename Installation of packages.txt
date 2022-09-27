@@ -1,0 +1,52 @@
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get upgrade -f // if some file is missing
+
+
+For apache server :-
+
+sudo apt-get install apache2 -y
+sudo apt-get install php5 libapache2-mod-php5 -y
+
+
+For Webcam :-
+
+
+sudo apt-get install motion
+sudo nano /etc/motion/motion.conf
+sudo nano /etc/default/motion    //no to yes
+
+For mail :-  //abb@gmail.com
+
+sudo apt-get install ssmtp
+sudo apt-get install mailutils
+sudo nano /etc/ssmtp/ssmtp.conf
+sudo apt-get install mpack
+
+
+For taking picture :- 
+
+sudo apt-get install fswebcam
+
+(fswebcam -r 1280x720 image2.jpg)
+
+
+
+For Temperature sensor :-
+
+
+sudo nano /boot/config.text
+
+dtoverlay=w1-gpio   //at the bottom of page enter it
+
+sudo reboot
+
+sudo modprobe w1-gpio
+sudo modprobe w1-therm
+
+cd /sys/bus/w1/devices
+ls
+
+cd (28-00 etc temp number)
+
+cat w1_slave
